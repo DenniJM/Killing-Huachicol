@@ -25,18 +25,18 @@ $(document).ready(function (){
         $("#lng").val(lng);
       });
     }
- });
- var data = {username:'fer@gmail.com',password:'12345',grant_type:'password'};
-  $.ajax({
-    url: 'https://auth-service-huachicol.herokuapp.com/oauth/token',
-    type:'POST',
-    dataType: 'JSON',
-    data: data ,
-    crossDomain: false,
-    headers:{'Content-Type': 'application/x-www-form-urlencoded',
-              'Authorization': 'Basic'+btoa('angularjwtclientid:12345')
-            }
-  }).done(function(msg){
-    console.log("token");
   });
+   var data = {username:'fer@gmail.com',password:'12345',grant_type:'password'};
+    $.ajax({
+      url: 'https://auth-service-huachicol.herokuapp.com/oauth/token',
+      type:'POST',
+      dataType: 'JSON',
+      data: data,
+      headers:{'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic '+btoa('angularjwtclientid:12345')
+              }
+    }).done(function(response){
+      console.log("token");
+      console.log(response);
+    });
 });
